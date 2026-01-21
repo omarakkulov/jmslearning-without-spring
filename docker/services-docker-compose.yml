@@ -1,0 +1,27 @@
+services:
+#  postgres18:
+#    image: postgres:18.1
+#    container_name: postgres18-db
+#    restart: no
+##    volumes:
+##      # Если мы хотим предотвратить потерю данных при удалении контейнера, можно установить эту настройку и данные будут храниться на локальной машине {your_path} - твой путь
+##      - ./postgres_data:/var/lib/postgresql
+#    ports:
+#      - "5435:5432"
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+#      - POSTGRES_DB=postgres
+
+  artemis:
+    image: apache/activemq-artemis:2.44.0
+    container_name: artemis-broker
+    restart: no
+#    volumes:
+#      - ./artemis_data:/var/lib/artemis-instance
+    ports:
+      - "61620:61616"   # JMS - основной брокерный порт
+      - "8165:8161"     # веб-консоль
+    environment:
+      - ARTEMIS_USER=artemis
+      - ARTEMIS_PASSWORD=artemis
