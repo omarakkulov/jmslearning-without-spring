@@ -6,6 +6,9 @@ import javax.jms.Queue;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+/**
+ * Шлем сообщение в очередь и читаем оттуда же.
+ */
 public class V1JmsContextDemo {
     public static void main(String[] args) throws NamingException {
         InitialContext context = new InitialContext();

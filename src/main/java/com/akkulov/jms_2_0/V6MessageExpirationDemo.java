@@ -9,7 +9,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 /**
- * Как установить срок действия эвентам(сообщениям) используя setTimToLive.
+ * Как установить срок действия эвентам(сообщениям) используя setTimeToLive. Сообщение после истечения срока отправляется в другую очередь,
+ * называемую "ExpiryQueue" - ровно таким же образом можно читать старые сообщения из нее и что-то с ними делать.
  */
 public class V6MessageExpirationDemo {
     public static void main(String[] args) throws NamingException, JMSException, InterruptedException {
@@ -30,6 +31,7 @@ public class V6MessageExpirationDemo {
             // имитируем какую-то деятельность, чтобы сообщение истекло
             Thread.sleep(5000);
 
+            // читаем и убеждаемся, что ничего не прочитали (null)
             var consumer = jmsContext.createConsumer(requestQueue);
             var receivedMessage = (TextMessage) consumer.receive(3000);
             System.out.println("Received: " + receivedMessage);

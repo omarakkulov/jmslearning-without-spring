@@ -6,6 +6,9 @@ import javax.jms.Queue;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+/**
+ * Задаем приоритет отправки сообщений и убеждаемся, что те, что с приоритетом выше, отправятся брокеру первее.
+ */
 public class V2MessagePriority {
     public static void main(String[] args) throws NamingException {
         InitialContext context = new InitialContext();
