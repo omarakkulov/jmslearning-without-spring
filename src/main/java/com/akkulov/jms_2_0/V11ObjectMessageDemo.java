@@ -3,7 +3,6 @@ package com.akkulov.jms_2_0;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 
 import javax.jms.JMSException;
-import javax.jms.MapMessage;
 import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 import javax.naming.InitialContext;
@@ -52,6 +51,22 @@ public class V11ObjectMessageDemo {
 
         public static Builder builder() {
             return new Builder();
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
         }
 
         @Override
